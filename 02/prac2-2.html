@@ -14,8 +14,13 @@
             createSequentialNumbers(numbers, 10);
             var n = Math.floor(Math.random() * 10);
             var m = Math.floor(Math.random() * 10);
-            numbers[n] = m + 1;
-            numbers[m] = n + 1;
+            if (n == m) {
+                var n = Math.floor(Math.random() * 10);
+                var m = Math.floor(Math.random() * 10);
+            } else {
+                numbers[n] = m + 1;
+                numbers[m] = n + 1;
+            }
             show(numbers);
             //prac2-1 10個の順数（１，２，３．．．の数列）を生成し，２番目と４番目を入れ替える
             //prac2-2 10個の順数を生成し，n番目とm番目を入れ替える
