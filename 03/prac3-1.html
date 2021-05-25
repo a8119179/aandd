@@ -11,11 +11,11 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
-            createRandomNumbers(numbers, 3);
+            createRandomNumbers(numbers, 10);
             show(numbers);
             //合計を求める
             var total = 0;
-            for (var i = 0; i < 3; i++) {
+            for (var i = 0; i < 10; i++) {
                 total = total + numbers[i];
             }
             show(total);
