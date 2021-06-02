@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var numbers = [];
+            createOrderedRandomNumbers(numbers, 20);
+            show(numbers);
+
+            var sch = Math.floor(Math.random() * 80);
+            show("探す数字:" + sch);
+
+
+            search(numbers, sch);
+
+        }
+
+        function search(numbers, sch) {
+            var a = 0;
+            var lower = 0;
+            var upper = numbers.length;
+            var mid;
+            var x;
+
+            while (lower <= upper) {
+                mid = Math.floor((lower + upper) / 2, 10);
+                x = numbers[mid];
+
+                if (sch == x) {
+                    a = 1;
+                    show(mid + "番地");
+                    break;
+                } else if (x < sch) {
+                    lower = mid + 1;
+                } else {
+                    upper = mid - 1;
+                }
+            }
+            if (a == 0) {
+                show("見つかりませんでした");
+                return;
+            }
+        }
+
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1>prac4-4</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+</body>
+
+</html>
