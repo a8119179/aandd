@@ -11,7 +11,7 @@
     <script>
         function runButtonPressed() {
             var numbers = [];
-            createOrderedRandomNumbers(numbers, 20);
+            createOrderedRandomNumbers(numbers, 25);
             show(numbers);
 
             var sch = Math.floor(Math.random() * 80);
@@ -30,7 +30,7 @@
             var x;
 
             while (lower <= upper) {
-                mid = Math.floor((lower + upper) / 2, 10);
+                mid = Math.floor((lower + upper) / 2);
                 x = numbers[mid];
 
                 if (sch == x) {
