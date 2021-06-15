@@ -13,32 +13,43 @@
 
     <script>
 
+        var nouns;
+
+        $(document).ready(function () {
+            nouns = nounstext.split('\n');
+        });
 
 
         function runButtonPressed() {
-            var text = document.getElementById('tf1').value;
-            var chars = text.split('');
-            show(chars);
+            for (j = 0; j < 50000; j++) {
+                var noun = selectone(nouns);
+                var chars = noun.split('');
+                show(chars);
 
-            for (i = 0; i < Math.round(chars.length / 2); i++) {
-                var a = chars[i];
-                var x = 0;
-                chars[i] = chars[chars.length - i - 1];
-                chars[chars.length - i - 1] = a;
-                if (chars[i] != chars[chars.length - i - 1]) {
-                    x = 1;
-                    break;
+                for (i = 0; i < Math.round(chars.length / 2); i++) {
+                    var a = chars[i];
+                    var x = 0;
+                    chars[i] = chars[chars.length - i - 1];
+                    chars[chars.length - i - 1] = a;
+                    if (chars[i] != chars[chars.length - i - 1]) {
+                        x = 1;
+                        break;
+                    }
+
                 }
-
-            }
-            if (x == 1) {
-                show("False");
-            } else {
-                show("True");
+                if (x == 1) {
+                    show("False");
+                } else {
+                    show("True");
+                }
             }
         }
 
-
+        function selectone(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
 
 
 
@@ -48,7 +59,6 @@
 
 <body>
     <h1>判定さん</h1>
-    <input id="tf1" type="text">
     <button onclick="runButtonPressed()">run!</button>
     <p id="res"></p>
 
