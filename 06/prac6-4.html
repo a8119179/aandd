@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script type="text/javascript" src="nouns.js"></script>
+    <script type="text/javascript" src="verbs.js"></script>
+
+    <script>
+
+
+
+
+        var nouns;
+        var verbs;
+
+        $(document).ready(function () {
+            nouns = nounstext.split('\n');
+        });
+
+        $(document).ready(function () {
+            verbs = verbstext.split('\n');
+        });
+
+        function runButtonPressed() {
+            for (j = 0; j < 250000; j++) {
+                var noun = selectone(nouns);
+                var verb = selectone(verbs);
+                var chars = noun + verb;
+                var x = 0;
+                for (i = 0; i < Math.round(chars.length / 2); i++) {
+                    var a = chars[i];
+
+                    chars[i] = chars[chars.length - i - 1];
+                    chars[chars.length - i - 1] = a;
+                    if (chars[i] != chars[chars.length - i - 1]) {
+                        x = 1;
+                        break;
+                    }
+
+                }
+
+                if (x == 0) {
+                    show(noun + verb)
+                }
+            }
+        }
+
+        function selectone(array) {
+            var size = array.length;
+            var index = Math.floor(Math.random() * size);
+            return array[index];
+        }
+
+
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1>回文作文さん</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <p id="res"></p>
+
+</body>
+
+</html>
