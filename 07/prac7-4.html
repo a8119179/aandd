@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+
+    <script>
+        var bot = {};
+
+
+        function wordButtonPressed() {
+            var word = document.getElementById('tf1').value;
+            var answer = bot[word];
+            if (answer === undefined) {
+                document.getElementById('tf2').value = word + "の答え方を教えてください";
+            } else {
+                document.getElementById('tf2').value = answer;
+            }
+        }
+
+        function teachButtonPressed() {
+            var word = document.getElementById('tf1').value;
+            var teach = document.getElementById('tf3').value;
+            bot[word] = teach;
+            var text = document.getElementById('tf2');
+            text.value = "";
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>botシステム</h1>
+    あなた：<input id="tf1" type="text" value="">
+    <button onclick="wordButtonPressed()">発言</button>
+    <br>
+    CPU：<input id="tf2" type="text" value="">
+    <br>
+    あなた：<input id="tf3" type="text" value="">
+    <button onclick="teachButtonPressed()">教える</button>
+    <p id="res"></p>
+</body>
+
+</html>
