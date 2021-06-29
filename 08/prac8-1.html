@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../jquery.min.js"></script>
+    <script type="text/javascript" src="../aandd.js"></script>
+    <script type="text/javascript" src="../osql.js"></script>
+
+    <script>
+        function runButtonPressed() {
+            var students = [{ 'name': '黒木', 'birthday': '6月24日' }, { 'name': '粕川', 'birthday': '5月12日' }, { 'name': '西村', 'birthday': '6月24日' }, { 'name': '上島', 'birthday': '6月5日' }];
+
+            document.getElementById('res').innerHTML = JSON.stringify(students, null, '\t');
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h1>prac8-1</h1>
+    <button onclick="runButtonPressed()">run!</button>
+    <pre id="res"></pre>
+</body>
+
+</html>
